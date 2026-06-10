@@ -1,40 +1,64 @@
-# Fitbit: Calorie Burn Prediction & Workout Pattern Clustering
+# Fitness Analytics: Calorie Burn Prediction & Workout Clustering
 
-## 📌 Overview
-This project leverages **machine learning** to enhance fitness analytics by:
-- Predicting calories burned per workout session using supervised regression.
-- Identifying hidden workout patterns and user segments using unsupervised clustering.
+##  Project Overview
+This project combines **supervised regression** and **unsupervised clustering** techniques to analyze workout data.  
+The goal is to predict **calories burned during workouts** and to identify **patterns in workout intensity** using PCA + KMeans.
 
-By combining predictive modeling and pattern discovery, the project demonstrates how wearable fitness data can power intelligent, real-world health applications.
+## Objectives
+- Predict **calorie burn** using multiple regression models.
+- Cluster workouts into **High, Moderate, Low intensity** groups.
+- Provide **business insights** for wearable fitness apps, coaching, and health platforms.
 
----
+## Dataset
+The dataset includes features such as:
+- Age, Gender, Weight, Height  
+- Heart Rate metrics (Max, Avg, Resting BPM)  
+- Session Duration, Fat Percentage, Water Intake  
+- Workout Frequency, BMI, MET values  
+- Calories Burned (target variable for regression)  
+- One‑hot encoded categorical features (Workout Type, Experience Level, Age Group, Intensity)
 
-## 🎯 Objectives
-1. **Calorie Burn Prediction (Regression)**
-   - Target: `Calories_Burned`
-   - Models: Linear/Ridge/Lasso Regression, KNN, Decision Tree, Random Forest, SVR, XGBoost
-   - Metrics: MAE, RMSE, R²
-   - Goal: Achieve **R² ≥ 0.80**
-
-2. **Workout Pattern Clustering (Unsupervised Learning)**
+##  Methodology
+1. **Data Preprocessing**
+   - Scaling with StandardScaler
+   - One‑hot encoding for categorical features
    - PCA for dimensionality reduction
-   - KMeans clustering (optional: DBSCAN, Hierarchical)
-   - Metric: Silhouette Score ≥ 0.15
-   - Goal: Identify meaningful workout intensity clusters
 
-##  Dataset
-**Features include:**
-- Demographics: Age, Gender, Weight, Height, BMI, Fat Percentage
-- Physiological: Max_BPM, Avg_BPM, Resting_BPM
-- Workout Context: Session_Duration, Workout_Type, Water_Intake, Workout_Frequency, Experience_Level
-- **Target:** Calories_Burned
+2. **Supervised Learning (Regression)**
+   - Linear Regression, Ridge, Lasso
+   - Decision Tree, Random Forest
+   - KNN, SVR, XGBoost
+   - Evaluation metrics: MAE, RMSE, R²
 
-## Skills & Tools
-- **Data Preprocessing & Feature Engineering**
-- **Regression Modeling** (Linear, Ridge, Lasso, KNN, Decision Tree, Random Forest, SVR, XGBoost)
-- **Clustering** (KMeans, DBSCAN, Hierarchical)
-- **Dimensionality Reduction** (PCA)
-- **Evaluation Metrics** (MAE, RMSE, R², Silhouette Score)
-- **Visualization** (Matplotlib, Seaborn)
+3. **Unsupervised Learning (Clustering)**
+   - PCA (2 components for visualization)
+   - KMeans clustering
+   - Silhouette score for evaluation
+   - Cluster analysis (feature means)
 
-##  Repository Structure
+4. **Visualization**
+   - Scatter plots (PCA1 vs PCA2)
+   - Boxplots & Histograms for PCA distributions
+   - Cluster centroid analysis
+
+## Business Insights
+# 1. Wearable Fitness Apps
+- Real‑time calorie burn prediction during workouts.
+- Enables smartwatches and trackers to provide **instant feedback**.
+# 2. Personalized Fitness Coaching
+- Clusters guide **custom workout recommendations**.
+- Coaches can tailor duration and intensity suggestions.
+# 3. Health Monitoring Platforms
+- Predicted energy expenditure supports **nutrition and diet planning**.
+- Helps users maintain calorie balance for weight management.
+# 4. User Segmentation
+- Clustering identifies **workout behavior patterns without labels**.
+- Segments like “Weekend Warriors” vs. “Daily Moderate Exercisers.”
+# 5. Product Optimization
+- Feature importance provides **insights for device manufacturers**.
+- Guides improvements in sensors, algorithms, and user interfaces.
+
+## Results
+- **Regression models** achieved R² scores up to ~0.85 (Random Forest, XGBoost).  
+- **Clustering** produced 3 meaningful groups with silhouette score ≈ 0.42.  
+- PCA visualization clearly separated High, Moderate, and Low intensity workouts.
